@@ -1,3 +1,7 @@
+#include <bits/stdc++.h>
+using namespace std ; 
+
+
 class Solution {
 public:
     static bool comp(vector<int> &a, vector<int> &b)

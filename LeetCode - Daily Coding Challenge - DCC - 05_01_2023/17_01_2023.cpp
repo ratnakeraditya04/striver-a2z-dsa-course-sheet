@@ -19,13 +19,11 @@ public:
                     cntFlip++ ; 
                 }
             }
-
             if(cntOne  < cntFlip)
             {
                 cntFlip = cntOne ; 
             }
         }
-
         return cntFlip ; 
 
     }

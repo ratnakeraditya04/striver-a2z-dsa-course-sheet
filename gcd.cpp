@@ -10,6 +10,6 @@ int gcd(int a,int b)
         else b = b % a ; 
     }
     if(a == 0) return b ; 
-    return a ; 
+    return a ;
 }
 

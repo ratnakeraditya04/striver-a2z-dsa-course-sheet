@@ -1,67 +1,73 @@
 #include <bits/stdc++.h>
-using namespace std ; 
-class Node{
+using namespace std;
+class Node
+{
 public:
     int val;
     Node *next;
-    Node(int num){
-        val=num;
-        next=NULL;
+    Node(int num)
+    {
+        val = num;
+        next = NULL;
     }
 };
 
-class Solution{
+class Solution
+{
 public:
     bool isPrime(int x)
     {
-        if(x == 2)
+        if (x == 2)
         {
-            return true ; 
+            return true;
         }
-        if(x == 3)
+        if (x == 3)
         {
-            return true ;
+            return true;
         }
-        for(int i = 2 ; i <= sqrt(x) + 1; i++)
+        for (int i = 2; i <= sqrt(x) + 1; i++)
         {
-            if(x % i == 0)
+            if (x % i == 0)
             {
-                return false ;
+                return false;
             }
         }
-        return true ;
+        return true;
     }
-    Node *primeList(Node *head){
-        
-        if(head == NULL)
+    Node *primeList(Node *head)
+    {
+
+        if (head == NULL)
         {
-            return head ; 
+            return head;
         }
-        Node* temp = head ; 
-        while(temp != NULL)
+        Node *temp = head;
+        while (temp != NULL)
         {
-            if(temp->val == 1)
+            if (temp->val == 1)
             {
-                temp->val = 2 ; 
-                temp = temp->next ;
+                temp->val = 2;
+                temp = temp->next;
             }
-            else if(isPrime(temp->val) == true )
+            else if (isPrime(temp->val) == true)
             {
-                temp = temp->next ;
+                temp = temp->next;
             }
-            else if(isPrime(temp->val) != true)
+            else if (isPrime(temp->val) != true)
             {
-                int x = temp->val ; 
-                int i = 1 ;
-                while(isPrime(temp->val) == false)
+                int x = temp->val;
+                int i = 1;
+                while (isPrime(temp->val) == false)
                 {
-                    if(isPrime(x - i)) temp->val = x - i ; 
-                    else if(isPrime(x + i)) temp->val = x + i ; 
-                    i++ ; 
+                    if (isPrime(x - i))
+                        temp->val = x - i;
+                    else if (isPrime(x + i))
+                        temp->val = x + i;
+                    i++;
                 }
-                temp = temp->next ; 
+                temp = temp->next;
             }
         }
-        return head ;
+        return head;
     }
 };

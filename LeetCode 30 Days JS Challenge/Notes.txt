@@ -1,0 +1,23 @@
+Day - 1 
+
+Arrow Function should not be used in following conditions -> 
+1. cannot be used as constructors to create new objects
+2. Arrow functions cannot be used as generator functions that use the yield keyword to return multiple values over time.
+
+
+The yield keyword is used in special functions called generator functions, which can return multiple values over time instead of returning just one value like a normal function.
+
+Ex - 
+
+const gen = function* (genarator)/name (...args)
+{
+    yield Statement 1 ; 
+    yield statement 2 ; 
+    .... so on. 
+}
+
+Calling the Genarator Function - Genarator function is actually used to return multiple values from the same function. 
+
+gen.next().value ; 
+To again get the value from the next gen function we use - 
+gen.next().value ; 

@@ -1,4 +1,9 @@
-Day - 1 
+Day - 1
+
+Arrow Function Syntax - 
+
+const add = (a, b) => a + b;
+
 
 Arrow Function should not be used in following conditions -> 
 1. cannot be used as constructors to create new objects
@@ -21,3 +26,72 @@ Calling the Genarator Function - Genarator function is actually used to return m
 gen.next().value ; 
 To again get the value from the next gen function we use - 
 gen.next().value ; 
+
+
+
+Day - 2 - CLOSURE 
+
+Closure is created when function is defined inside another function and the inner function references variable from the outer function's scope. 
+When Inner function is returned from the outer function, it retains the reference to the outer function's scope and can continue to access these variables even though it has finished executing. 
+
+A closure Function can be used in following concepts - 
+1. Private Variables and Functions 
+
+Ex - 
+
+const makeCounter = () => {
+    let cnt = 0 ;
+
+    return () => {
+        cnt++ ;
+        console.log(cnt) ;
+    }
+}
+
+let counter = makeCounter(); 
+counter() ; // logs 1  
+counter() ; // logs 2 
+counter() ; // logs 3
+
+
+
+2. Partial Functions 
+
+Ex - 
+
+function add(x) {
+    return function(y) {
+        return x + y ; 
+    }
+}
+
+let add5 = add(5); 
+console.log(add5(3)) ; // Output - 8 
+
+
+3. For Preserving States in Asynchrnous Code - 
+
+Ex - 
+
+const animate = (element , from , to , duration) => {
+    let start = performance.now ; 
+
+    const update = () => {
+        let time = performance.now() - start ;
+        let progress = time/duration ; 
+        let value = from + (to - from)*progress; 
+
+        element.style.left = value + 'px' ; 
+
+        if(progress < 1)
+        {
+            requestAnimationFrame(update) ;
+        }
+    }
+    requestAnimationFrame(update) ;
+}
+
+
+
+let element = document.getElementById('my-element') ; 
+animate(element , 0 , 100 , 1000); 

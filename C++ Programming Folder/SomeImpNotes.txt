@@ -1,0 +1,32 @@
+C++ A Programming Language that is both Procedural and Object Oriented Language. 
+
+User Input / Output - 
+cout , 
+cin , 
+cerr , 
+clog 
+
+Un-buffered standard error stream (cerr): The C++ cerr is the standard error stream that is used to output the errors. 
+Buffered standard error stream (clog): This is also an instance of ostream class and used to display errors but unlike cerr the error is first inserted into a buffer and is stored in the buffer until it is not fully filled.
+
+
+POINTERS IN C++. 
+
+Dangling pointer: A pointer pointing to a memory location that has been deleted (or freed) is called a dangling pointer.
+File Pointer: The pointer to a FILE data type is called a stream pointer or a file pointer.
+Null Pointers are those pointers that do not point to any memory location.
+Size of Pointers using sizeof attribute. 
+
+STL - Standard Template Library - 
+Four Imp Components - 
+1. Algorithms 
+2. Containers 
+3. Functors 
+4. Iterators
+
+Asymptotic Analysis - 
+Order of Growth of time taken by a function in terms of input size.
+Space Complexity - 
+Order of Growth of Function over memory occupied by a function over a period of time. 
+Auxiliary Space - 
+Order of growth of function over extra space or temporary space over a period of time.  

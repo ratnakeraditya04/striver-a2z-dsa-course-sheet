@@ -95,3 +95,40 @@ const animate = (element , from , to , duration) => {
 
 let element = document.getElementById('my-element') ; 
 animate(element , 0 , 100 , 1000); 
+
+
+Day - 3 - Closure Extended - 
+
+Object Declaration - 
+let person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+
+Now, in this declaration of object we can also return functions also like the today's function. 
+Functions in JS are mainly of two types - 
+- Traditional Functions 
+and 
+- Arrow Functions 
+
+Day - 3  Solution Using Class Also - 
+
+class Counter {
+    constructor(init){
+        this.init = init ; 
+        this.count = init; 
+    }
+    increment() {
+        this.count += 1; 
+        return this.count ; 
+    }
+    decrement() {
+        this.count -= 1 ; 
+        return this.count ; 
+    }
+    reset () {
+        this.count = this.init ; 
+        return this.count ; 
+    }
+}
+
+var createCounter = function(init){
+    return new Counter(init) ; 
+}; 

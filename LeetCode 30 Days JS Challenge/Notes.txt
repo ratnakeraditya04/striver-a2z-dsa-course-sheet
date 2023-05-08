@@ -1,5 +1,18 @@
 Day - 1
+Functions in JS - 
+1. Function Syntax - Ex - 
 
+function f(a, b) {
+  const sum = a + b;
+  return sum;
+}
+console.log(f(3, 4)); // 7
+
+2. Anonymous Function - Exclude name of the function after function keyword. 
+3. Immediately Invoked Function Expression (IIFE)
+4. Function Within Functions - Actually create functions within other functions and even return them!
+5. Function Hoisting
+JavaScript has a feature called hoisting where a function can sometimes be used before it is initialized.
 Arrow Function Syntax - 
 
 const add = (a, b) => a + b;
@@ -30,6 +43,7 @@ gen.next().value ;
 
 
 Day - 2 - CLOSURE 
+In JavaScript, functions have a reference to all variables declared in the same scope as well as any outer scopes. These scopes are known as the function's lexical environment. The combination of the function and it's environment is known as a closure.
 
 Closure is created when function is defined inside another function and the inner function references variable from the outer function's scope. 
 When Inner function is returned from the outer function, it retains the reference to the outer function's scope and can continue to access these variables even though it has finished executing. 
@@ -132,3 +146,56 @@ class Counter {
 var createCounter = function(init){
     return new Counter(init) ; 
 }; 
+
+
+Day - 4 - Different Methods to Solve A Problem. 
+
+Before that learn about - Callbacks 
+A callback is defined as a function passed as an argument to another function. They are critical to understand as they are used frequently in almost any JavaScript codebase and are essential to writing reusable code.
+
+1. Using a loop with containerised container. 
+
+var map = function(arr , fn) {
+    const transformaedArray = [] ; 
+
+    for(let i = 0 ; i < arr.size() ; i++)
+    {
+        transformaedArray[i] = fn(arr[i] , i) ; 
+    }
+    return transformaedArray ; 
+}
+
+
+2. Using a forEach Method -  
+
+var map = function(arr , fn) {
+    const transformaedArray = [] ;
+
+    forEach((element , index) => {
+        transformaedArray[i] = fn(arr[i] , i); 
+    })
+
+    return transformaedArray ; 
+}
+
+3. Using Array Reduce - 
+Syntax - array.reduce(function(total, currentValue, currentIndex, arr), initialValue) 
+
+var map = function(arr , fn) {
+    return arr.reduce((transformaedArray , element , index) => {
+        transformaedArray[i] = fn(element , index ); 
+    }, []); 
+}
+
+4. Using For Of Loop - 
+
+var map = function(arr , fn) {
+    let index = 0 ; 
+
+    for(const index in arr)
+    {
+        transformaedArray[index] = fn(element , index) ;
+        index++ ;
+    }
+    return transformaedArray ; 
+}

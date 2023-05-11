@@ -231,5 +231,58 @@ NaN ("Not a Number", one way to get it is with 0/0)
 null
 undefined
 
+Day - 6 - Reduce Transformations Implementation 
+JS Loops  
+
+For 
+While
+Do While 
+For IN
+For Of
+forEach - Have a callback Function as Argument. 
+
+Array.map() - Creates a NEW Array. 
+Parameters - 
+1. callBackFxn and this Callback function is called with element and index of the array. 
+2. this (optional) 
+
+Ex -  
+const numbers = [1, 4, 9];
+const roots = numbers.map((num) => Math.sqrt(num));
+
+Array.filter() - Provides a shallow copy. 
+
+What is Shallow Copy? 
+A shallow copy of an object is a copy whose properties share the same references as those of the source object from which the copy was made. 
+As a result, changes in the source or copy result in change of other object too. 
+
+What is Deep Copy ? 
+
+A deep copy of an object is a copy whose properties do not share the same references as those of the source object from which the copy was made. 
+As a result, when you change either the source or the copy, you can be assured you're not causing the other object to change too.
+
+
+JSON.stringify() - Used to Convert the object to a JSON string. 
+JSON.parse() - To Convert the string back into a (completely new) JS object. 
+
+
+Back to Array.filter() - Shallow Copy created. 
+Same as Array.map() parameters;
+
+
+Array.reduce() - executes a user supplied "reducer" callback function on each element of the array by passing in the return value on the preceding element.  
+Syntax - 
+1. reduce(callBackFxn)
+2. reduce(callBackFxn , this) ; 
+
+Here, the callback function is called with - 
+accumulator - value resulting from the previous call to callBackFxn. 
+currentValue - Value of the Current Element of the Array. 
+currentIndex - Index Position of the CurrentElement. 
+
+Another Optional Argument is -
+initialVal - If not specified, taken as default as the first element of the Array over which reduce is called.  
+
+
 
 

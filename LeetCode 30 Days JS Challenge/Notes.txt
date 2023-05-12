@@ -281,8 +281,39 @@ currentValue - Value of the Current Element of the Array.
 currentIndex - Index Position of the CurrentElement. 
 
 Another Optional Argument is -
-initialVal - If not specified, taken as default as the first element of the Array over which reduce is called.  
+initialVal - If not specified, taken as default as the first element of the Array over which reduce is called. 
 
 
+Day - 7 - Functions Composition 
+
+Function composition is a concept in functional programming where the output of one function is used as the input of another function. In other words, it's the process of chaining two or more functions together so that the result of one function becomes the input to the next.
+
+
+
+Day - 8 - Function INput and Output - 
+
+Functions that modify or extends the behavior of functions are extremely common in JavaScript and are a key concept in functional programming. 
+They are very useful for writing elegant, reusable code, and have a variety of use-case -
+
+Throttling - 
+
+Querying the database for results every single time a character is typed could put unnecessary load on the database and the user interface. 
+To prevent this, you could employ a technique known as throttling. 
+
+By throttling the function responsible for sending requests to the database, we ensure that only a limited number of requests are sent per second, thereby optimizing system performance.
+See - Lodash - Library documentation to learn more - _.throttle(function , [wait=0] , [options={}]); 
+
+
+Memoize - 
+
+A common optimisation is to never call a pure function with the same inputs twice. 
+
+ASvoid Computation by returning the previously cached result. 
+Important Concept in Dynamic Programming . 
+
+Time Limit - 
+Suppose there exists a process that repeats itself(like syncing data from a database and loading them in a in - memeory cache)
+Suppose at any time these asychronous requests failed at a particular time, then our current process will becoeme frozen. 
+To guarantee that never happens, we could wrap the asychronous functions used with time limits.
 
 

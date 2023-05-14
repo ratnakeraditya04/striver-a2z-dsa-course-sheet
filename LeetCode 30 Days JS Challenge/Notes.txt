@@ -308,7 +308,7 @@ Memoize -
 
 A common optimisation is to never call a pure function with the same inputs twice. 
 
-ASvoid Computation by returning the previously cached result. 
+Avoid Computation by returning the previously cached result. 
 Important Concept in Dynamic Programming . 
 
 Time Limit - 
@@ -317,3 +317,101 @@ Suppose at any time these asychronous requests failed at a particular time, then
 To guarantee that never happens, we could wrap the asychronous functions used with time limits.
 
 
+
+DAY - 9 - Memoization 
+
+A function that modifies a provided function such that the provided function will only be called if the arguments have not been passed before. 
+If they have been passed before, it should return the previous output without calling the provided function. This type of optimization is called memoization and is an extremely important example of a higher-order function.
+
+
+
+Pure functions - A pure function is defined as function that always returns the same output given the same inputs and doesn't have any side-effects.
+A function that is not a pure function such as - date.now() - returns time in unix epoch. If it is memoized then it will give the same result which is incorrect. 
+Similarly, uploading data to the database will also results in the same. 
+
+
+Memoization - Use cases in Web Development - 
+
+Caching Website Files - A large website often consists of many JavaScript files which are dynamically downloaded when a user visits different pages. A pattern is sometimes employed where the filename is based on a hash of the file's content. That way, when the web browser requests a filename that was already requested before, it can load the file locally from disk rather than have to download it again.
+React Components - React is a highly popular library for building user interfaces, especially for single-page applications. 
+                    One of its core principles is the idea of breaking down your application into separate components. Each of these components is responsible for rendering a distinct part of the app's HTML.
+For Ex - Title Component in React will not be needed to call again and again. 
+
+Caching API Calls - Through - Example - 
+Suppose you had a function that sends a network request to an API to access key-value pairs in a database.
+getValueMemoized will only make a network request once for each key, potentially greatly improving performance.
+
+
+A potential downside of memoizing network requests is the risk of data staleness. 
+To handle this:
+
+1. Always send a request to the API asking if the value was changed.
+2. Use a WebSocket to subscribe to changes in the values in the database.
+3. Give the value Time Until Expiration so that at least the user won't see data that's TOO outdated.
+
+
+
+Memoization in Algorithms 
+
+A classic application of memoization is in dynamic programming where you break up a problem into sub-problems.
+
+A classic example is of  - Fibonacci Sequence 
+const cache = new Map();
+function fib(n) {
+  if (i <= n) return n;
+  if (cache.has(n)) {
+    return cache.get(n);
+  }
+  const result = fib(n - 1) + fib(n - 2);
+  cache.set(n, result);
+  return result;
+}
+fib(100); // Solves almost instantly
+
+
+
+Day - 10 - Currying A Function 
+
+REST Parameters - In JS - 
+Rest parameter syntax allows a function to accept an indefinite number of arguments as an array, providing a way to represent variadic functions in JavaScript.
+Variadic Functions - Those Functions which will take a variable number of parameters. 
+Syntax - REST Parameters 
+
+function f(a, b, ...theArgs) {
+  // …
+}
+
+A function definition can only have one rest parameter, and the rest parameter must be the last parameter in the function definition.
+The rest parameter is not counted towards the function's length property.
+
+
+the third argument, manyMoreArgs, will be an array that contains the third, fourth, fifth, sixth, …, nth — as many arguments as the user specifies.
+function myFun(a, b, ...manyMoreArgs) {
+  console.log("a", a);
+  console.log("b", b);
+  console.log("manyMoreArgs", manyMoreArgs);
+}
+
+
+
+
+Currying is a powerful technique in functional programming that transforms a function with multiple arguments into a sequence of functions. 
+It allows you to create flexible and reusable code by enabling partial application of function arguments.
+
+Currying in JavaScript has several practical applications that can help improve code readability, maintainability, and reusability.
+
+Some practical use cases of currying:
+
+1. Reusable utility functions: Currying can help create reusable utility functions that can be easily customized for specific use cases. Currying allows you to create a function that returns another function with a partially applied argument. In this case, we have a curried add function that takes two arguments, a and b. When you call add with a single argument, it returns a new function that takes the second argument b and adds it to the initially provided a.
+
+const add = a => b => a + b;
+
+// Create a new function 'add5' by calling the curried 'add' function with the value 5.
+// The returned function will take a single argument 'b' and add it to 5.
+const add5 = add(5);
+
+// Now, when we call 'add5' with a value (e.g., 3), it adds 5 to the input value, resulting in 8.
+const result = add5(3); // 8
+
+2. Event handling: In event-driven programming, currying can be used to create event handlers with specific configurations, while keeping the core event handling function generic.
+3. Customizing API calls: Currying can help create more specific API calls based on a generic API call function.

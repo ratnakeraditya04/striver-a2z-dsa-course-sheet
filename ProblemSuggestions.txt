@@ -17,3 +17,18 @@ Subarrays with K Different Integers - https://leetcode.com/problems/subarrays-wi
 Fruit Into Baskets - https://leetcode.com/problems/fruit-into-baskets/discuss/170740/Sliding-Window-for-K-Elements
 Shortest Subarray with Sum at Least K - https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/discuss/143726/C%2B%2BJavaPython-O(N)-Using-Deque
 Minimum Size Subarray Sum - https://leetcode.com/problems/minimum-size-subarray-sum/discuss/433123/JavaC++Python-Sliding-Window
+
+
+Valid Parenthesis Problem - 
+
+
+
+Here is a ladder of parentheses problem, in order of problem number.
+
+1541 - Minimum Insertions to Balance a Parentheses String
+1249 - Minimum Remove to Make Valid Parentheses
+1111 - Maximum Nesting Depth of Two Valid Parentheses Strings
+1190 - Reverse Substrings Between Each Pair of Parentheses
+1021 - Remove Outermost Parentheses
+921 - Minimum Add to Make Parentheses Valid
+856 - Score of Parentheses

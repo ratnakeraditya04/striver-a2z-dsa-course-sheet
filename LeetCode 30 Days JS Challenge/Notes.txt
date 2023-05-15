@@ -415,3 +415,109 @@ const result = add5(3); // 8
 
 2. Event handling: In event-driven programming, currying can be used to create event handlers with specific configurations, while keeping the core event handling function generic.
 3. Customizing API calls: Currying can help create more specific API calls based on a generic API call function.
+
+
+
+
+
+Day - 11 - Promises in JavaScript - DO READ TODAY'S EDITORIAL AGAIN AND AGAIN TO KEEP GETTING CLARITY IN MIND. 
+
+A promise in Js is an object representing the eventual completion or failure of an asychronous operation.
+Essentially, it's a returned object to which you attach callbacks, as opposed to passing callbacks into a function.
+
+
+let promise = new Promise((resolve , reject) => {
+    let condition = true; 
+
+    setTimeout(() => {
+        if(condition){
+            resolve('Promise Fulfilled'); 
+        }
+        else{
+            reject('Promise Rejected'); 
+        }
+    }, 1000); 
+}) ; 
+// Attach then() and catch() handlers to the Promise
+
+promise
+    .then(value => {
+        // This will be executed if the promise is resolved
+        console.log(value) ;
+    })
+    .catch(error =>{
+        // This will be executed if the promise is rejected
+        console.log(error) ;
+    });
+
+
+
+The resolve function is called if the promise is successful, and reject is called if the promise fails.
+
+The then method is called when the promise is resolved and receives the value passed to the resolve function. 
+Similarly, the catch method is called when the promise is rejected and receives the value passed to the reject function.
+
+
+The setTimeout function plays a key role in this problem. It's a method that calls a function or evaluates an expression after a specified number of milliseconds. In JavaScript, setTimeout is used to delay the execution of a piece of code.
+
+As JS even if it encounters the setTimeout. It will keep executing the code and will not pause.  It does not pause or wait for the timer to finish, illustrating the non-blocking nature of JavaScript.
+
+
+
+It's also worth to mention clearTimeout which is a valuable function in JavaScript's suite of timer functions. clearTimeout is a function that cancels a timeout previously established by calling setTimeout.
+
+console.log("Starting the timer...");
+
+// setTimeout returns a Timeout object which can be used to reference the timer
+let timeoutId = setTimeout(() => {
+  console.log("Timeout completed!");
+}, 2000);
+
+// Some condition or logic
+if (/* some condition */) {
+// Cancels the timeout
+  clearTimeout(timeoutId);
+}
+
+
+
+JavaScript - Event Loop - 
+
+JavaScript uses a call stack to manage the execution of functions. When a function is called, it's added to the stack. When the function completes, it's removed from the stack. JavaScript, being single-threaded, can only execute one function at a time.
+However, this could be problematic if a function takes a long time to execute (like a network request). This is where the Event Loop comes in.
+
+
+
+The Event Loop is a continuous loop that checks if the call stack is empty. If it is, it takes the first task from the task queue (also known as the event queue or the callback queue) and pushes it onto the call stack, which immediately executes it.
+Once the timer completes, the callback function given to setTimeout is added to the task queue. The Event Loop constantly checks the call stack and the task queue. When the call stack is empty, it takes the first task from the task queue and pushes it onto the call stack to be executed.
+
+
+Concurrency and the Event Loop
+Here's how JavaScript can handle concurrent operations:
+
+JavaScript runs a piece of code (this code is running on the main thread).
+When an async operation is encountered (like setTimeout, fetch, etc.), JavaScript sets it up and then continues running the rest of the code. It doesn't wait for the async operation to complete. This async operation might be running in the background but not on the main JavaScript thread.
+When the async operation completes, its callback function is placed into the task queue.
+Once the call stack is empty (i.e., all the code in the current turn of the Event Loop has been executed), the Event Loop takes the first task from the task queue and pushes it onto the call stack, which immediately executes it.
+This process continues, with the Event Loop pushing tasks from the task queue onto the call stack whenever the call stack is empty, allowing JavaScript to handle multiple operations concurrently despite being single-threaded.
+This is a high-level overview of how JavaScript handles asynchronous operations. It's more complex in reality, with additional features like microtasks and macrotasks, but this is the fundamental concept.
+
+
+
+
+Async/await
+Async/await can be seen as syntax sugar on top of promises, making asynchronous code easier to write and understand. 
+When we mark a function with the async keyword, it becomes an asynchronous function that automatically returns a promise.
+
+Within an async function, we can use the await keyword to pause the execution of the code until the promise is resolved or rejected.
+By employing await, we can eliminate the need for explicit .then() and .catch() chains that are typically used with promises. Instead, we can structure our code in a more linear and synchronous-looking manner.
+
+
+Promise Chaining 
+
+Promise chaining is a technique in JavaScript that allows you to perform multiple asynchronous operations in a sequence, with each operation starting when the previous one has completed. The primary advantage of promise chaining is that it allows you to avoid the "callback hell" or "pyramid of doom" that can result from using nested callbacks to handle asynchronous code.
+Instead, you can write asynchronous code that almost looks like synchronous code, making it much easier to understand and maintain.
+
+Each then in a promise chain receives the result of the previous promise's resolution. This result can be used to inform the next step in the chain. If a promise in the chain is rejected, the chain's subsequent then methods will be skipped until a catch method is found.
+
+In JavaScript, Promises offer several powerful methods for handling asynchronous actions and their results. One of these methods is .finally. The .finally method is a built-in method of a Promise that is always executed, regardless of whether the promise is fulfilled or rejected. This makes it an excellent place to put cleanup code that must be run regardless of the outcome of the promise.
